@@ -1,12 +1,16 @@
+def linha(msg='', leng=50):
+    print('=' * leng)
+    print(msg)
+    print('=' * leng)
+
+
 def inteiro(msg):
     while True:
         escolha = input(msg)
-
         try:
             escolha = int(escolha)
-        except ValueError as error:
-            print("Por favor, apenas digite números")
-            # print(error)
+        except ValueError:
+            linha("Por favor, apenas digite números")
         else:
             return escolha
 
@@ -29,7 +33,12 @@ def adicionar(tarefa, lista=None):
 
 def listar(lista):
     if type(lista) is not list:
-        print("Lista de tarefas vazia, Adicione novas tarefas! =)")
+        linha("Lista de tarefas vazia, Adicione novas tarefas! =)")
     else:
+        print('=' * 50)
         for a, b in enumerate(lista):
-            print(f"[{a + 1}] {b}")
+            print(f"[Tarefa {a + 1}] {b}")
+        print('=' * 50)
+
+
+GravarHistorico = adicionar
