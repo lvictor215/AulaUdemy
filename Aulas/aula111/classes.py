@@ -1,3 +1,6 @@
+from traceback import print_tb
+
+
 class Pessoa:
     def __init__(self, nome, idade):
         self.nome = nome
@@ -13,6 +16,10 @@ class Cliente(Pessoa):
         print(f"{self.nome} está comprando...")
 
 
-class Aluno(Pessoa):
-    def estudar(self):
-        print(f"{self.nome} está estudando")
+class ClienteVip(Cliente):
+    def falar(self):
+        super().falar()
+        print("Voz mais alta!")
+
+    def SalaVip(self):
+        print(f"{self.nome} está na sala VIP")
