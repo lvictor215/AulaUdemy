@@ -7,4 +7,4 @@ print(p1.get_ano_nascimento())
 print(p2.get_ano_nascimento())
 
 
-p2.falar('comida')
+p2.falar('danos morais')

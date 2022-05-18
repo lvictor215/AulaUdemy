@@ -23,6 +23,7 @@ class Produto:
         if isinstance(valor, str):
             valor = valor.upper()
             valor = float(valor.replace('R$', ''))
+
         self._preco = valor
 
     @nome.setter
@@ -36,6 +37,6 @@ p1.desconto(10)
 
 print(p1.preco)
 
-p2 = Produto('Caneca', 'r$15')
+p2 = Produto('Caneca', 'R$15')
 p2.desconto(10)
 print(p2.preco)

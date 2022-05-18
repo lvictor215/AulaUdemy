@@ -10,3 +10,4 @@ print(a1.nome)
 a1.falar()
 a1.comprar()
 a1.SalaVip()
+4
