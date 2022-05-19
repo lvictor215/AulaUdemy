@@ -1,4 +1,4 @@
-class Arquivo:
+"""class Arquivo:
     def __init__(self, arquivo, modo):
         self.arquivo = open(arquivo, modo)
 
@@ -8,9 +8,20 @@ class Arquivo:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.arquivo.close()
 
-#arquivo = open('abc.txt', 'w')
-#arquivo.write('Alguma coisa')
-#arquivo.close()
+
+# arquivo = open('abc.txt', 'w')
+# arquivo.write('Alguma coisa')
+# arquivo.close()
 
 with open('abc.txt', 'w+') as arquivo:
     arquivo.write("Luiz Victor")
+"""
+from contextlib import contextmanager
+@contextmanager
+def abrir(arquivo, modo):
+    try:
+        arquivo = open(arquivo, modo)
+        yield arquivo
+    finally:
+        arquivo.close()
+        
