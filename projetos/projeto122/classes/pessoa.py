@@ -24,13 +24,7 @@ class Pessoa(ABC):
         self._idade = idade
 
 
-class Cliente(Pessoa, ContaCorrente, ContaPoupanca):
-    def __init__(self, nome, idade, banco, agencia, conta, saldo, tipo_de_conta=1, limite=100):
-        Pessoa.__init__(self, nome, idade)
-        self._banco = banco
-
-        if tipo_de_conta == 1:
-            ContaPoupanca.__init__(self, agencia, conta, saldo)
-        elif tipo_de_conta == 2:
-            ContaCorrente.__init__(self, agencia, conta, saldo, limite)
-
+class Cliente(Pessoa):
+    def __init__(self, nome, idade, conta=None):
+        super().__init__(nome, idade)
+        self._conta = conta

@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
+from classes.pessoa import Cliente
+from classes.contas import ContaCorrente, ContaPoupanca
 
 
-class Banco:
+class Banco(Cliente, ):
     def __init__(self, codigo, nome):
         self._codigo = codigo
         self._nome = nome
@@ -21,5 +23,3 @@ class Banco:
     @nome.setter
     def nome(self, nome):
         self._nome = nome
-
-

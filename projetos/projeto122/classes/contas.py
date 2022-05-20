@@ -61,6 +61,7 @@ class ContaPoupanca(Conta):
             self.resumo()
             return
         print("Sacado com sucesso!")
+        self._saldo -= valor
         self.resumo()
 
 
