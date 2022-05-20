@@ -1,25 +1,27 @@
-from abc import ABC, abstractmethod
-from classes.pessoa import Cliente
-from classes.contas import ContaCorrente, ContaPoupanca
+class Banco:
+    def __init__(self, nome_banco):
+        self._nomeBanco = nome_banco
+        self._agencias = [50, 320, 14, 8522]
+        self._clientes = []
+        self._contas = []
 
+    def cadastro_de_cliente(self, cliente):
+        self._clientes.append(cliente)
 
-class Banco(Cliente, ):
-    def __init__(self, codigo, nome):
-        self._codigo = codigo
-        self._nome = nome
+    def cadastro_de_conta(self, conta):
+        self._contas.append(conta)
 
-    @property
-    def codigo(self):
-        return self._codigo
-
-    @property
-    def nome(self):
-        return self._nome
-
-    @codigo.setter
-    def codigo(self, codigo):
-        self._codigo = codigo
-
-    @nome.setter
-    def nome(self, nome):
-        self._nome = nome
+    def autenticar_cliente(self, cliente):
+        if cliente not in self._clientes:
+            print("Acesso negado! Cliente não encontrado")
+            return False
+        print("Cliente encontrado! Validando conta...")
+        if cliente.conta not in self._contas:
+            print("Acesso negado! Conta não encontrada no sistema.")
+            return False
+        if cliente.conta.agencia not in self._agencias:
+            print("Acesso negado! Agência não encontrada")
+            return False
+        print("Validado com sucesso!")
+        print("Operação realizada com sucesso")
+        return True

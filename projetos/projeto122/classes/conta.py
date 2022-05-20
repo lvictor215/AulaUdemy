@@ -51,7 +51,7 @@ class Conta(ABC):
 
 
 class ContaPoupanca(Conta):
-    def __init__(self, agencia, conta, saldo):
+    def __init__(self, agencia, conta, saldo=0):
         super().__init__(agencia, conta, saldo)
         print("Criada nova conta poupança")
 
@@ -66,8 +66,7 @@ class ContaPoupanca(Conta):
 
 
 class ContaCorrente(Conta):
-    def __init__(self, agencia, conta, saldo, limite):
-        print(saldo)
+    def __init__(self, agencia, conta, saldo=0, limite=100):
         super().__init__(agencia, conta, saldo)
         self._limite = limite
         print("Criada nova conta corrente")
@@ -78,6 +77,5 @@ class ContaCorrente(Conta):
                   f"em conta + LIS.\nLIS ATUAL: R$ {float(self._limite):.2f}")
             self.resumo()
             return
-        print("Sacado com sucesso!")
         self._saldo -= valor
         self.resumo()
