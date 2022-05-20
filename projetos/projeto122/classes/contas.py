@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Conta(ABC):
-    def __init__(self, agencia, conta, saldo):
+    def __init__(self, agencia, conta, saldo=0):
         self._agencia = agencia
         self._conta = conta
         self._saldo = saldo
@@ -74,7 +74,8 @@ class ContaCorrente(Conta):
 
     def sacar(self, valor):
         if valor > (self._saldo + self._limite):
-            print(f"Impossível, o valor a ser sacado excede o valor em conta + LIS.\nLIS ATUAL: R$ {float(self._limite):.2f}")
+            print(f"Impossível, o valor a ser sacado excede o valor "
+                  f"em conta + LIS.\nLIS ATUAL: R$ {float(self._limite):.2f}")
             self.resumo()
             return
         print("Sacado com sucesso!")

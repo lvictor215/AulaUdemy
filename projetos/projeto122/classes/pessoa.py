@@ -1,5 +1,4 @@
 from abc import ABC
-from classes.contas import ContaCorrente, ContaPoupanca
 
 
 class Pessoa(ABC):
@@ -28,3 +27,12 @@ class Cliente(Pessoa):
     def __init__(self, nome, idade, conta=None):
         super().__init__(nome, idade)
         self._conta = conta
+
+    @property
+    def conta(self):
+        return self._conta
+
+    @conta.setter
+    def conta(self, conta):
+        self._conta = conta
+
