@@ -1,2 +1,2 @@
-email = 'atendimento@luizpeixoto.com.br '
+email = 'testes@luizpeixoto.com.br'
 senha = 'Lvictor215'
